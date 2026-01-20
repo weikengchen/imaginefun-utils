@@ -23,7 +23,6 @@ import net.minecraft.resources.Identifier;
 
 import net.minecraft.core.Direction;
 
-// Code from Camzanno
 @Mixin(SkullBlockRenderer.class)
 public abstract class SkullBlockRendererMixin {
     @Unique
