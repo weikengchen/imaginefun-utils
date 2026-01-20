@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "imaginefunutils",
+	"version": "${version}",
+	"name": "ImagineFunUtils",
+	"description": "A mod providing QOL improvements for ImagineFun. Heavily a Work-in-Progress.",
+	"authors": [
+		"ImagineFun Team"
+	],
+	"contact": {
+		"homepage": "https://discord.gg/disneyland"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/imaginefunutils/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.imaginefun.ImagineFunUtils"
+		],
+		"client": [
+			"net.imaginefun.ImagineFunUtilsClient"
+		]
+	},
+	"mixins": [
+		"imaginefunutils.mixins.json",
+		{
+			"config": "imaginefunutils.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.3",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
