@@ -60,14 +60,20 @@ public abstract class SkullBlockRendererMixin {
         ModelFeatureRenderer.CrumblingOverlay crumblingOverlay,
         CallbackInfo ci
     ) {
-        if(renderLayer == null) return;
+        if (renderLayer == null) {
+            return;
+        }
 
         RenderTypeAccessor playerSkinCacheEntryAccessor = (RenderTypeAccessor) renderLayer;
         RenderSetup renderSetup = playerSkinCacheEntryAccessor.getState();
-        if (renderSetup == null) return;
+        if (renderSetup == null) {
+            return;
+        }
 
         Identifier texture = getTextureLocation(renderSetup, "Sampler0");
-        if (texture == null) return;
+        if (texture == null) {
+            return;
+        }
 
         boolean success = PlayerHeadRenderer.render(
             texture,
@@ -77,6 +83,8 @@ public abstract class SkullBlockRendererMixin {
             yaw
         );
 
-        if(success) ci.cancel();
+        if (success) {
+            ci.cancel();
+        }
     }
 }
