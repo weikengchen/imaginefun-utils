@@ -1,4 +1,4 @@
-package net.imaginefun.mixins;
+package net.imaginefun.mixins.client;
 
 
 import java.util.Map;
@@ -28,18 +28,12 @@ public abstract class SkullBlockRendererMixin {
     @Unique
     private static Identifier getTextureLocation(RenderSetup renderSetup, String textureKey) {
         Map<String, ?> textures = ((RenderSetupAccessor) (Object) renderSetup).getTextures();
-        Object textureSpec = textures.get(textureKey);
-        if (textureSpec == null) {
+        Object textureBinding = textures.get(textureKey);
+        if (textureBinding == null) {
             return null;
         }
         
-        // TextureSpec is a record, so we can use reflection to get the location
-        try {
-            java.lang.reflect.Method locationMethod = textureSpec.getClass().getMethod("comp_5228");
-            return (Identifier) locationMethod.invoke(textureSpec);
-        } catch (Exception e) {
-            return null;
-        }
+        return ((TextureBindingAccessor) textureBinding).invokeLocation();
     }
     
     @Inject(

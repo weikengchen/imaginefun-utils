@@ -1,4 +1,4 @@
-package net.imaginefun.mixins;
+package net.imaginefun.mixins.client;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
